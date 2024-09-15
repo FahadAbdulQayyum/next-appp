@@ -1,7 +1,5 @@
 export default function Home() {
   return (
-    <h1 className="text-9xl">
-      Let continue learning!
-    </h1>
+    <div className="bg-slate-400">Navbar</div>
   )
 }
