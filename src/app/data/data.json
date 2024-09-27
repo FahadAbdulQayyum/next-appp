@@ -1,0 +1,20 @@
+[
+    {
+        "id": 0,
+        "event": "fahad",
+        "action": "gtm.init",
+        "args": "['GTM-XXXXXX']"
+    },
+    {
+        "id": 1,
+        "event": "ahmed",
+        "action": "gtm.init1",
+        "args": "['GTM-XXXXXX1']"
+    },
+    {
+        "id": 2,
+        "event": "itbar",
+        "action": "gtm.init1",
+        "args": "['GTM-XXXXXX1']"
+    }
+]

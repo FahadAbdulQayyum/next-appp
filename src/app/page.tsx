@@ -1,17 +1,61 @@
-import Counter from "@/components/counter";
+'use client'
 
-export default function Home() {
+import { useRouter } from 'next/navigation'
+import DashboardLayout from './dashboard/layout'
+import Layout from './layout'
+import Landing from '@/components/landing'
+import { useEffect, useState } from 'react'
+
+export default function Page() {
+  const router = useRouter()
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // Set mounted to true after the component has been mounted on the client
+    setMounted(true);
+  }, []);
+
+  // If not mounted, render null (or a loading placeholder)
+  if (!mounted) {
+    return null;
+  }
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <span className="flex text-7xl">
-        Count: <Counter />
-      </span>
-      {/* <span className="flex justify-between"> */}
-      <span className="flex space-x-32">
-        <button className="bg-orange-400 rounded-lg p-3 px-5">Start</button>
-        <button className="bg-red-400 rounded-lg p-3 px-5">Stop</button>
-      </span>
-    </div>
+    <Layout>
+      <Landing />
+    </Layout>
   )
 }
+
+
+
+
+
+// import type { Metadata } from 'next'
+
+// export const metadata: Metadata = {
+//   title: 'Next.js',
+// }
+
+// export default function Page() {
+//   return '...'
+// }
+
+
+
+
+
+
+
+// import Landing from '@/components/landing'
+// import React from 'react'
+
+// const Page = () => {
+//   return (
+//     <div>
+//       <Landing />
+//     </div>
+//   )
+// }
+
+// export default Page
