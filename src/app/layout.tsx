@@ -7,7 +7,7 @@ const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
   display: 'swap',
 });
 
-export default function RootLayout({ children: any }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="ur" dir="rtl">
       <head />
