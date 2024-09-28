@@ -2,7 +2,7 @@
 
 import '../globals.css';
 import data from '../data/data.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Page = () => {
 
@@ -12,6 +12,10 @@ const Page = () => {
         action: string;
         args: string;
     }[]
+
+    useEffect(() => {
+        window.location.reload
+    }, [])
 
     const [inputData, setInputData] = useState('');
     const [foundData, setFoundData] = useState<dt>([]);

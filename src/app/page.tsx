@@ -3,7 +3,8 @@
 // import { useRouter } from 'next/navigation'
 // import DashboardLayout from './dashboard/layout'
 import Layout from './layout'
-import Landing from '@/components/landing'
+// import Landing from '@/components/landing'
+import Treee from '@/components/tree';
 import { useEffect, useState } from 'react'
 
 export default function Page() {
@@ -22,7 +23,8 @@ export default function Page() {
 
   return (
     <Layout>
-      <Landing />
+      {/* <Landing /> */}
+      <Treee />
     </Layout>
   )
 }

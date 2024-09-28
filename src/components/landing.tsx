@@ -11,7 +11,8 @@ const Landing = () => {
         <div>
             <button
                 className='bg-orange-400 rounded-lg px-3 py-1 hover:scale-95 duration-150 hover:text-black'
-                onClick={() => router.push('/location')}
+                // onClick={() => router.push('/location')}
+                onClick={() => router.replace('/location')}
             >Book Now</button>
         </div>
     )
