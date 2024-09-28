@@ -6,13 +6,21 @@ import { useState } from 'react';
 
 const Page = () => {
 
-    const [inputData, setInputData] = useState('');
-    const [foundData, setFoundData] = useState([]);
+    type dt = {
+        id: number;
+        event: string;
+        action: string;
+        args: string;
+    }[]
 
-    const appearDetail = (e: any) => {
+    const [inputData, setInputData] = useState('');
+    const [foundData, setFoundData] = useState<dt>([]);
+
+
+    const appearDetail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputData(e.target.value);
         // let dataToSearch = JSON.stringify(data);
-        let dataToSearch: any = data.filter(v => v.event.includes(inputData));
+        const dataToSearch: dt = data.filter(v => v.event.includes(inputData));
         // console.log('dataToSerach', dataToSearch);
         setFoundData(dataToSearch);
     }
@@ -28,7 +36,7 @@ const Page = () => {
                     onChange={e => appearDetail(e)}
                 />
                 {foundData && inputData && <div>
-                    {foundData.map((v:any) => {
+                    {foundData.map((v) => {
                         return (
                             <div key={v.id} className='px-32 text-gray-800 bg-gray-100'>{v.event}</div>
                         )

@@ -1,13 +1,13 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-import DashboardLayout from './dashboard/layout'
+// import { useRouter } from 'next/navigation'
+// import DashboardLayout from './dashboard/layout'
 import Layout from './layout'
 import Landing from '@/components/landing'
 import { useEffect, useState } from 'react'
 
 export default function Page() {
-  const router = useRouter()
+  // const router = useRouter()
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

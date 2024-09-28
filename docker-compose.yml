@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  nextjs-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000" # Expose the Next.js app on port 3000
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    depends_on:
+      - cloudflared
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    environment:
+      TUNNEL_URL: http://nextjs-app:3000 # Expose the Next.js app through Cloudflare tunnel
+    command: "tunnel --no-autoupdate"
+    volumes:
+      - ./cloudflared:/etc/cloudflared # Cloudflare tunnel configuration
+    depends_on:
+      - nextjs-app
+    restart: unless-stopped
+
+volumes:
+  postgres_db:
+    driver: local
+
+networks:
+  default:
+    driver: bridge
+
+# version: '3.8'
+
+# services:
+#   nextjs-app:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - "3000:3000" # Expose the Next.js app on port 3000
+#     environment:
+#       - NODE_ENV=production
+#     restart: unless-stopped
+#     depends_on:
+#       - cloudflared
+
+#   cloudflared:
+#     image: cloudflare/cloudflared:latest
+#     environment:
+#       TUNNEL_URL: http://nextjs-app:3000 # Expose the Next.js app through Cloudflare
+#     command: "tunnel --no-autoupdate"
+#     volumes:
+#       - ./cloudflared:/etc/cloudflared # Mount the Cloudflare configuration
+#     depends_on:
+#       - nextjs-app # Ensure the Next.js app is running before the tunnel starts
+
+# volumes:
+#   postgres_db:
+#     driver: local
+
+# networks:
+#   default:
+#     driver: bridge
+
+# # version: '3'
+
+# # services:
+# #   nextjs-app:
+# #     build:
+# #       context: .
+# #       dockerfile: Dockerfile
+# #     ports:
+# #       - "3000:3000"
+# #     environment:
+# #       - NODE_ENV=production
+# #     restart: unless-stopped
