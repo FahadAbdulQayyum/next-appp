@@ -1,0 +1,53 @@
+[
+    {
+      "name": "Bridal Makeup",
+      "price": 150.00,
+      "imageUrl": "https://images.pexels.com/photos/4965450/pexels-photo-4965450.jpeg"
+    },
+    {
+      "name": "Party Makeup",
+      "price": 100.00,
+      "imageUrl": "https://images.pexels.com/photos/4965450/pexels-photo-4965450.jpeg"
+    },
+    {
+      "name": "Basic Manicure",
+      "price": 30.00,
+      "imageUrl": "https://images.pexels.com/photos/4965450/pexels-photo-4965450.jpeg"
+    },
+    {
+      "name": "Gel Nail Polish",
+      "price": 50.00,
+      "imageUrl": "https://images.pexels.com/photos/4965450/pexels-photo-4965450.jpeg"
+    },
+    {
+      "name": "Nail Art",
+      "price": 70.00,
+      "imageUrl": "https://images.pexels.com/photos/4965450/pexels-photo-4965450.jpeg"
+    },
+    {
+      "name": "Ear Piercing - Single",
+      "price": 40.00,
+      "imageUrl": "https://images.pexels.com/photos/4965450/pexels-photo-4965450.jpeg"
+    },
+    {
+      "name": "Ear Piercing - Double",
+      "price": 70.00,
+      "imageUrl": "https://images.pexels.com/photos/4965450/pexels-photo-4965450.jpeg"
+    },
+    {
+      "name": "Eyebrow Threading",
+      "price": 15.00,
+      "imageUrl": "https://images.pexels.com/photos/4965450/pexels-photo-4965450.jpeg"
+    },
+    {
+      "name": "Facial Treatment",
+      "price": 90.00,
+      "imageUrl": "https://images.pexels.com/photos/4965450/pexels-photo-4965450.jpeg"
+    },
+    {
+      "name": "Hair Styling",
+      "price": 120.00,
+      "imageUrl": "https://images.pexels.com/photos/4965450/pexels-photo-4965450.jpeg"
+    }
+  ]
+  

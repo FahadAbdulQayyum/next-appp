@@ -1,4 +1,13 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+// next.config.mjs
+export default {
+    images: {
+        domains: ['images.pexels.com'], // Add the domain of your external image
+    },
+};
 
-export default nextConfig;
+
+
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {};
+
+// export default nextConfig;
