@@ -4,7 +4,7 @@ export interface FamilyMember {
     children?: FamilyMember[];
 }
 
-export const familyTree: FamilyMember = {
+export const familyTreeName: FamilyMember = {
     name: 'جان محمد',
     children: [
         {

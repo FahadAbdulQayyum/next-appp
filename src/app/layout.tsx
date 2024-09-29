@@ -1,4 +1,5 @@
 // app/layout.tsx
+import { ReactNode } from 'react';
 import { Noto_Nastaliq_Urdu } from '@next/font/google';
 
 const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
@@ -7,7 +8,11 @@ const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
   display: 'swap',
 });
 
-export default function RootLayout({ children }) {
+interface RootLayoutProps {
+  children: ReactNode; // Define children as ReactNode
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="ur" dir="rtl">
       <head />

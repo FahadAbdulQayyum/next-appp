@@ -1,13 +1,13 @@
 // app/page.tsx
 import '../app/globals.css'
-import FamilyTree from '../components/FamilyTree';
-import { familyTree } from './familyTree';
+import FamilyTree from '../components/familyTre';
+import { familyTreeName } from './familyTreeName';
 
 export default function Home() {
   return (
     <main style={{ padding: '20px' }}>
       <h1>Family Tree</h1>
-      <FamilyTree data={familyTree} />
+      <FamilyTree data={familyTreeName} />
     </main>
   );
 }

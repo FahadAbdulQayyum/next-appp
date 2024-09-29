@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FamilyMember } from '../app/familyTree';
+import { FamilyMember } from '../app/familyTreeName';
 
 import '../app/globals.css';
 
@@ -74,7 +74,7 @@ interface FamilyTreeProps {
     data: FamilyMember;
 }
 
-const FamilyTree: React.FC<FamilyTreeProps> = ({ data }) => {
+const FamilyTre: React.FC<FamilyTreeProps> = ({ data }) => {
     return (
         <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
             <FamilyMemberComponent member={data} />
@@ -82,7 +82,7 @@ const FamilyTree: React.FC<FamilyTreeProps> = ({ data }) => {
     );
 };
 
-export default FamilyTree;
+export default FamilyTre;
 
 
 
