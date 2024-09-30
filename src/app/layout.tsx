@@ -1,14 +1,18 @@
 import { NavLinks } from '@/app/ui/nav-links'
 import './globals.css'
+import Popup from './popup/page'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <NavLinks />
-        <main>{children}</main>
+        <div className='relative'>
+          <NavLinks />
+          <main>{children}</main>
+          <Popup />
+        </div>
       </body>
-    </html>
+    </html >
   )
 }
 
