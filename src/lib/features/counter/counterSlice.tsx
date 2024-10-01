@@ -3,10 +3,14 @@ import { AppStore } from '../../store';
 
 interface CounterState {
     value: number;
+    obj: {
+        productName: string[];
+    }
 }
 
 const initialState: CounterState = {
     value: 0,
+    obj: { productName: [] }
 };
 
 const counterSlice = createSlice({
@@ -15,6 +19,9 @@ const counterSlice = createSlice({
     reducers: {
         initializeCount: (state, action: PayloadAction<number>) => {
             state.value = action.payload;
+        },
+        incrementt: (state, action) => {
+            state.obj.productName.push(action.payload);
         },
         increment: (state) => {
             state.value += 1;
@@ -26,7 +33,7 @@ const counterSlice = createSlice({
 });
 
 // Export the actions
-export const { initializeCount, increment, decrement } = counterSlice.actions;
+export const { initializeCount, increment, incrementt, decrement } = counterSlice.actions;
 
 // Export the reducer
 export default counterSlice.reducer;

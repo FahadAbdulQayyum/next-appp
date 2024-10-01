@@ -2,14 +2,19 @@ import { NavLinks } from '@/app/ui/nav-links'
 import './globals.css'
 import Popup from './popup/page'
 
+import StoreProvider from './StoreProvider'
+
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
         <div className='relative'>
           <NavLinks />
-          <main>{children}</main>
-          <Popup />
+          <StoreProvider count={0}> {/* Pass the initial count value here */}
+            <main>{children}</main>
+            <Popup />
+          </StoreProvider>
         </div>
       </body>
     </html >

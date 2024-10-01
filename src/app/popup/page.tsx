@@ -1,9 +1,19 @@
 "use client"
 
-import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../lib/store'; // Import the RootState type
+import { incrementt, decrement } from '../../lib/features/counter/counterSlice';
+
 import { useRouter } from 'next/navigation';
 
 const Popup = () => {
+
+    // const count = useSelector((state: RootState) => state.counter?.value);
+    const obj = useSelector((state: RootState) => state.counter?.obj);
+
+    // Optional: Use dispatch if you want to modify the count
+    const dispatch = useDispatch();
+
     const router = useRouter();
     return (
         <div
@@ -13,9 +23,9 @@ const Popup = () => {
             <button
                 onClick={() => router.push('/calendars')}
             >
-                2 Services - $340
+                {obj && obj.productName.length}
             </button>
-        </div >
+        </div>
     )
 }
 

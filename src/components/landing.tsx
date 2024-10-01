@@ -11,6 +11,7 @@ const Landing = () => {
     const router = useRouter();
 
     const count = useSelector((state: RootState) => state.counter?.value);
+    console.log('countttt', count);
 
     // Optional: Use dispatch if you want to modify the count
     const dispatch = useDispatch();
