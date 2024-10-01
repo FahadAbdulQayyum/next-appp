@@ -1,11 +1,14 @@
 import Landing from '@/components/landing'
-import React from 'react'
+// import StoreProvider from '../lib/StoreProvider'
+import StoreProvider from './StoreProvider'
 
 const Page = () => {
   return (
-    <div>
-      <Landing />
-    </div>
+    <StoreProvider count={0}> {/* Pass the initial count value here */}
+      <div>
+        <Landing />
+      </div>
+    </StoreProvider>
   )
 }
 

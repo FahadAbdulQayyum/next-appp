@@ -1,11 +1,20 @@
 "use client"
 
 import { useRouter } from 'next/navigation'
-import React from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../lib/store'; // Import the RootState type
+import { increment, decrement } from '../lib/features/counter/counterSlice';
+
 
 const Landing = () => {
 
     const router = useRouter();
+
+    const count = useSelector((state: RootState) => state.counter?.value);
+
+    // Optional: Use dispatch if you want to modify the count
+    const dispatch = useDispatch();
+
 
     return (
         <div>
@@ -15,6 +24,11 @@ const Landing = () => {
             // onClick={() => router.push('/learn')}
             // onClick={() => router.push('/locations')}
             >Book Now</button>
+            <p>Current count: {count}</p>
+
+            {/* Optional buttons to increment/decrement count */}
+            <button onClick={() => dispatch(increment())}>Increment</button>
+            <button onClick={() => dispatch(decrement())}>Decrement</button>
         </div>
     )
 }
