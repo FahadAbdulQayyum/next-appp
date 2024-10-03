@@ -41,6 +41,7 @@ const Popup: React.FC = () => {
     // let pricee: number = 0;
 
     type productType = {
+        id: number,
         name: string,
         price: number,
         imageUrl: string,
@@ -65,6 +66,12 @@ const Popup: React.FC = () => {
         console.log('priceee...', pricee);
     }, [obj])
 
+    const removeProduct = (obj: productType) => {
+        // products.filter(v => console.log('v...', obj))
+        setProducts(products.filter(v => v.id !== obj.id))
+
+    }
+
     const items: CollapseProps['items'] = [
         {
             key: '1',
@@ -74,11 +81,15 @@ const Popup: React.FC = () => {
             // children: <p>{text}</p>,
             // children: <p>{obj && obj.productName.map(v => v)}</p>,
             children: <div>{products.map((v, i) => typeof v === 'object' && 'name' in v ? <div
+                key={i}
                 style={{
                     display: 'flex',
-                    justifyContent: 'space-between'
+                    justifyContent: 'space-between',
                 }}
-            ><span>{i + 1 + ' - ' + v.name}</span><span><DeleteOutlined /></span></div> : v)}</div>,
+            ><span
+            >{i + 1 + ' - ' + v.name}</span><span className='text-red-600 hover:cursor-pointer hover:scale-125 duration-1000'><DeleteOutlined
+                onClick={() => removeProduct(v)}
+            /></span> </div> : v)}</div>,
             //                 {obj && obj.productName.length + ' - ' + '$' + pricee}
 
         }
@@ -90,7 +101,9 @@ const Popup: React.FC = () => {
 
     return <Collapse items={items} defaultActiveKey={['1']} onChange={onChange}
         style={{
-            backgroundColor: 'white'
+            backgroundColor: 'white',
+            width: '200px',
+            borderRadius: '10px 10px 0 0'
         }}
     />;
 };

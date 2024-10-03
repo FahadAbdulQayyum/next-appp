@@ -13,7 +13,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <NavLinks />
           <StoreProvider count={0}> {/* Pass the initial count value here */}
             <main>{children}</main>
-            <Popup />
+            <span
+              className='fixed bottom-5 right-5'
+            >
+              <Popup />
+              <div
+                className='bg-orange-400 flex items-center text-black justify-center py-2 font-bold hover:cursor-pointer active:scale-75 duration-1000'
+                style={{
+                  borderRadius: '0 0 10px 10px'
+                }}
+              >Checkout</div>
+            </span>
           </StoreProvider>
         </div>
       </body>
