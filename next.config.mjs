@@ -1,7 +1,7 @@
 // next.config.mjs
 export default {
     images: {
-        domains: ['images.pexels.com'], // Add the domain of your external image
+        domains: ['images.pexels.com', 'www.shutterstock.com'], // Add the domain of your external image
     },
 };
 

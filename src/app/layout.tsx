@@ -2,10 +2,16 @@ import { NavLinks } from '@/app/ui/nav-links'
 import './globals.css'
 import Popup from './popup/page'
 
+// import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../lib/store'; // Import the RootState type
+
 import StoreProvider from './StoreProvider'
 
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+
+  // const obj = useSelector((state: RootState) => state.counter?.obj);
+
   return (
     <html lang="en">
       <body>
@@ -14,15 +20,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <StoreProvider count={0}> {/* Pass the initial count value here */}
             <main>{children}</main>
             <span
-              className='fixed bottom-5 right-5'
+              className='fixed bottom-5 right-5 z-50'
             >
               <Popup />
-              <div
-                className='bg-orange-400 flex items-center text-black justify-center py-2 font-bold hover:cursor-pointer active:scale-75 duration-1000'
-                style={{
-                  borderRadius: '0 0 10px 10px'
-                }}
-              >Checkout</div>
             </span>
           </StoreProvider>
         </div>

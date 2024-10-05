@@ -6,7 +6,12 @@ import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import { useRouter } from 'next/navigation';
 
-const Page: React.FC = () => {
+interface CalendarsProps {
+    setOpen: (value: boolean) => void;
+}
+
+// const Calendars: React.FC = (showDrawer, setOpen) => {
+const Calendars: React.FC<CalendarsProps> = ({ setOpen }) => {
 
     const router = useRouter();
 
@@ -25,8 +30,9 @@ const Page: React.FC = () => {
     const onSelect = (newValue: Dayjs) => {
         setValue(newValue);
         setSelectedValue(newValue);
-
-        router.push('/summary')
+        // showDrawer()
+        setOpen(true)
+        // router.push('/summary')
     };
 
     const onPanelChange = (newValue: Dayjs) => {
@@ -38,7 +44,7 @@ const Page: React.FC = () => {
         backgroundColor: '#f5f5f5',
         borderRadius: '8px',
         // maxWidth: '400px',
-        maxWidth: '800px',
+        // maxWidth: '800px',
         margin: 'auto',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     };
@@ -49,14 +55,16 @@ const Page: React.FC = () => {
     };
 
     return (
-        <div style={containerStyle}>
+        <div
+            style={containerStyle}
+        >
             <Alert message={`You selected date: ${selectedValue?.format('YYYY-MM-DD')}`} style={alertStyle} />
             <Calendar value={value} onSelect={onSelect} onPanelChange={onPanelChange} />
         </div>
     );
 };
 
-export default Page;
+export default Calendars;
 
 
 
