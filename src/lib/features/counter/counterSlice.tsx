@@ -27,6 +27,7 @@ const counterSlice = createSlice({
             let foundProduct = state.obj.productName.length > 0 && state.obj.productName.filter(v => v.id === action.payload.id)
             console.log('foundProduct...', foundProduct)
             if (foundProduct) {
+                // foundProduct.quantity = foundProduct.quantity ? foundProduct.quantity + 1 : foundProduct.quantity + 2;
                 foundProduct.quantity = foundProduct.quantity ? foundProduct.quantity + 1 : foundProduct.quantity + 2;
             }
             state.obj.productName.push(action.payload);
