@@ -6,6 +6,7 @@ import type { DrawerProps, RadioChangeEvent } from 'antd';
 import { Button, Drawer, Radio, Space } from 'antd';
 import Calendars from '../calendars/page';
 import Image from 'next/image';
+import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
 
 const CalendarTime: React.FC = () => {
 
@@ -27,6 +28,11 @@ const CalendarTime: React.FC = () => {
     const onChange = (e: RadioChangeEvent) => {
         setPlacement(e.target.value);
     };
+
+    const routeTo = (address: string) => {
+        // router.push('/location')
+        router.push(address)
+    }
 
     return (
         <>
@@ -56,7 +62,10 @@ const CalendarTime: React.FC = () => {
                 >
                     {times.map(v => <div
                         className="w-max border border-x-2 p-5 hover:scale-105 duration-700 transition-transform cursor-pointer"
-                        onClick={() => router.push('/summary')}
+                        onClick={() =>
+                            // router.push('/summary')
+                            routeTo('/summary')
+                        }
                     >
                         <div className='flex justify-between w-64'>
                             <div className="font-bold">

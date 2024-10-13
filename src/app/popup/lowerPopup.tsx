@@ -6,6 +6,11 @@ const LowerPopUp = () => {
 
     const router = useRouter();
 
+    const routeTo = (address: string) => {
+        // router.push('/location')
+        router.push(address)
+    }
+
     return (
         <span>
             <div
@@ -13,7 +18,8 @@ const LowerPopUp = () => {
                 style={{
                     borderRadius: '0 0 10px 10px'
                 }}
-                onClick={() => router.push('/checkout')}
+                // onClick={() => router.push('/checkout')}
+                onClick={() => routeTo('/checkout')}
             >Checkout
             </div>
         </span>

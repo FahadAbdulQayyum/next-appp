@@ -6,6 +6,10 @@ import { useState } from 'react';
 import LoadingIcons from 'react-loading-icons';
 import { useRouter } from 'next/navigation';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../lib/store'; // Import the RootState type
+import { incrementLocation, decrement } from '../../lib/features/counter/counterSlice';
+
 const Page = () => {
 
     const router = useRouter();
@@ -14,12 +18,20 @@ const Page = () => {
     const [loader, setLoader] = useState(false);
     const [foundData, setFoundData] = useState([]);
 
+    // Optional: Use dispatch if you want to modify the count
+    const dispatch = useDispatch();
+
     const appearDetail = (e: any) => {
         setInputData(e.target.value);
         // let dataToSearch = JSON.stringify(data);
         let dataToSearch: any = data.filter(v => v.event.includes(inputData));
         // console.log('dataToSerach', dataToSearch);
         setFoundData(dataToSearch);
+    }
+
+    const routeTo = (address: string) => {
+        // router.push('/location')
+        router.push(address)
     }
 
     return (
@@ -44,8 +56,12 @@ const Page = () => {
                                         setLoader(true)
                                         setFoundData([])
                                         setInputData(v.event)
+                                        console.log('vvvv...', v.event)
+                                        dispatch(incrementLocation(v))
+                                        // dispatch(incrementt(v.event))
                                         setTimeout(() => {
-                                            router.push('/services')
+                                            // router.push('/services')
+                                            routeTo('/services')
                                         }, 2000)
                                     }}
                                 > {v.event}</button>
